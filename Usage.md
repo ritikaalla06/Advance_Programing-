@@ -20,26 +20,29 @@ Set the baud rate to 9600.
 
 You should see output like:
 
+For Temperature and Humidity 
 Temperature = 25.2°C
 Humidity = 49%
 
+For the IMU Sensor
+Tilting right 10 degrees
+Tilting up 78 degrees
 
 If the sensor fails to initialize, you’ll see:
+For Temperature and Humidity 
 Failed to initialize humidity temperature sensor!
 
+For the IMU Sensor
+Failed to initialize IMU sensor!
 How the Code Works
 It only prints new values if there's a significant change:
 
-Temperature change ≥ 0.5°C
-
-Humidity change ≥ 1%
 
 This avoids cluttering the output with redundant data.
 Modifying the Code
 You can customize the behavior easily:
 Change reporting thresholds:
 
-if (abs(old_temp - temperature) >= 0.5 || abs(old_hum - humidity) >= 1)
 → You can adjust 0.5 and 1 to finer or coarser thresholds.
 
 Adjust the delay between readings:
@@ -53,5 +56,3 @@ Go to Tools > Serial Plotter
 You’ll be able to visualize temperature and humidity changes over time.
 
 Make sure your print lines match a key = value format, like:
-Serial.print("Temperature=");
-Serial.println(temperature);
